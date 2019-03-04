@@ -13,8 +13,15 @@ public class ByteCodeSample extends Base {
 
         Class cl = Class.forName("javabasic.ByteCodeSample");
         ByteCodeSample obj = (ByteCodeSample) cl.newInstance();
+        //获取所有属性，包括private修饰的属性，但是不包括继承过来的
         Field[] fileds = cl.getDeclaredFields();
         for (Field field : fileds) {
+            System.out.println(field.getName());
+        }
+        System.out.println("-----------------");
+        //获取所有public修饰的属性，包括继承过来的
+        Field[] fileds2 = cl.getFields();
+        for (Field field : fileds2) {
             System.out.println(field.getName());
         }
     }
